@@ -105,14 +105,12 @@ optimization: {
 
 `npm install typescript ts-loader -D`
 
+### 加入VUE@3.x
+
 ```js
-
+npm install vue@next -S
+npm install vue-loader@next @vue/compiler-sfc -D
 ```
-
-
-
-
-
 
 
 ### postcss-loader
@@ -150,3 +148,9 @@ optimization: {
     moduleIds: 'deterministic' // 被哈希转化成的小位数值模块名。
 },
 ```
+
+## 参考资料
+
+[https://juejin.cn/post/6924180659829211143](https://juejin.cn/post/6924180659829211143)
+
+[https://github.com/zxpsuper/createVue](https://github.com/zxpsuper/createVue)

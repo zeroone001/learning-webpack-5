@@ -8,6 +8,8 @@ const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plug
 
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 
+const { VueLoaderPlugin } = require('vue-loader/dist/index');
+
 const argv = require('yargs').argv;
 // const yargs = require('yargs/yargs')
 // const { hideBin } = require('yargs/helpers')
@@ -30,14 +32,27 @@ module.exports = {
         open: true,
         contentBase: path.resolve(__dirname, 'dist')
     },
-    optimization: {
-        minimize: true,
-        minimizer: [
-            new TerserWebpackPlugin()
-        ]
-    },
+    // 暂时先不压缩
+    // optimization: {
+    //     minimize: true,
+    //     minimizer: [
+    //         new TerserWebpackPlugin()
+    //     ]
+    // },
     module: {
         rules: [
+            {
+                test: /\.vue$/,
+                use: [
+                    'vue-loader'
+                ]
+            },
+            {
+                test: /\.ts/,
+                use: [
+                    'ts-loader'
+                ]
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -86,6 +101,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new VueLoaderPlugin(),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src/index.html'),
@@ -102,6 +118,6 @@ module.exports = {
             // filename: path.resolve(__dirname, 'dist/css/index.css')
             filename: 'css/[name].[contenthash:7].css'
         }),
-        new OptimizeCssAssetsWebpackPlugin()
+        new OptimizeCssAssetsWebpackPlugin(),
     ]
 }
