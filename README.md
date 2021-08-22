@@ -22,10 +22,6 @@ npm i @babel/polyfill -D
   
 */ 
 npm i core-js@3 -D
-
-
-
-
 ```
 
 
