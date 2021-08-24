@@ -6,7 +6,7 @@
                 "targets": {
                     "browsers": ["> 1%", "last 2 versions", "not ie <= 8", "Android >= 4.4"]
                 },
-                "corejs": 3,
+                "corejs": { "version": "3.16", "proposals": true },
                 "useBuiltIns": "usage"
             }
         ]
