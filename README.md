@@ -13,6 +13,11 @@ npm i webpack@5.44.0 webpack-cli@4 webpack-manifest-plugin webpack-merge -D
 ```js
 npm i babel-loader @babel/core @babel/preset-env -D
 
+npm install @babel/plugin-transform-runtime -D
+npm install  @babel/runtime @babel/runtime-corejs3 --save
+
+
+// 下面这两个不用安装了
 // 默认的Babel只⽀持let等⼀些基础的语法转换，Promise等特性无法转换，这时候需要借助@babel/polyfill，把es的新特性都装进来，来弥补低版本浏览器中缺失的特性。
 npm i @babel/polyfill -D
 /*
@@ -150,3 +155,5 @@ optimization: {
 [https://juejin.cn/post/6924180659829211143](https://juejin.cn/post/6924180659829211143)
 
 [https://github.com/zxpsuper/createVue](https://github.com/zxpsuper/createVue)
+
+[中文官网](https://webpack.docschina.org/configuration/)
