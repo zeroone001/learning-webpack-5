@@ -50,7 +50,7 @@ npm i core-js@3 -D
 
 ### 开发环境下服务器配置
 
-`npm install webpack-dev-server -D`
+`npm install webpack-dev-server@4 -D`
 
 ```js
 devServer: {
@@ -149,6 +149,10 @@ optimization: {
     moduleIds: 'deterministic' // 被哈希转化成的小位数值模块名。
 },
 ```
+
+### 环境支持
+
+Node V10.13.0 以上版本
 
 ## 参考资料
 
