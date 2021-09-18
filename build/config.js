@@ -18,11 +18,11 @@ if (argv.pages) {
 // 获取入口文件
 let entries = (entryPath => {
     let files = {};
-    let filesPath = glob.sync(`${entryPath}/*.js`, {
-        ignore: [`src/pages/commend-list-old-version/*.js`]
+    let filesPath = glob.sync(`${entryPath}/*.ts`, {
+        ignore: [`src/pages/commend-list-old-version/*.ts`]
     });
     filesPath.forEach((entry, index) => {
-        let chunkName = path.relative('src/pages', entry).replace(/\.js$/i, '');
+        let chunkName = path.relative('src/pages', entry).replace(/\.ts$/i, '');
         files[chunkName] = path.resolve(__dirname, '../', entry);
     });
     return files;

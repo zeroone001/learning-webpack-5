@@ -314,6 +314,9 @@ npm install stylelint-webpack-plugin --save-dev
 
 ### 加入VUE@3.x
 
+webpack4的vue的编译模板是`vue-template-compiler`
+webpack5的vue的编译模板是`@vue/compiler-sfc`
+
 ```js
 npm install vue@next -S
 npm install vue-loader@next @vue/compiler-sfc -D

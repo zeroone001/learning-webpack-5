@@ -15,10 +15,10 @@ interface Person {
 }
 export default defineComponent({
   setup() {
-    const aa = ref('123');
+    const aa = ref('456789');
 
     const obj: Person = {
-      name: 'eqweqwewq123',
+      name: 'qweqweqw',
       age: 18,
     };
     const rectiveObj = reactive(obj);
