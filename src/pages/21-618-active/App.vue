@@ -7,31 +7,32 @@
     </div>
 </template>
 <script lang='ts'>
+import { defineComponent, reactive, ref } from 'vue';
+
 interface Person {
-    name: string,
+    name: string
     age: number
 }
-import { defineComponent, reactive, ref } from 'vue';
 export default defineComponent({
-    setup () {
-        let aa = ref('123');
+  setup() {
+    const aa = ref('123');
 
-        let obj: Person = {
-            name: 'eqweqwewq123',
-            age: 18
-        }
-        let rectiveObj = reactive(obj);
-        
-        const q = () => {
-            let aaa = '12312312312312';
-            console.log(aaa);
-        }
-        q();
-        return {
-            aa,
-            rectiveObj
-        };
-    }
+    const obj: Person = {
+      name: 'eqweqwewq123',
+      age: 18,
+    };
+    const rectiveObj = reactive(obj);
+
+    const q = () => {
+      const aaa = '12312312312312';
+      console.log(aaa);
+    };
+    q();
+    return {
+      aa,
+      rectiveObj,
+    };
+  },
 });
 </script>
 <style lang="scss" scoped>

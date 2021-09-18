@@ -1,4 +1,4 @@
-# eslint
+# ESlint
 
 
 
@@ -12,7 +12,6 @@
 npm install eslint -D
 # npm install eslint-loader -D
 npm install eslint-webpack-plugin --save-dev
-
 ```
 
 
@@ -32,9 +31,6 @@ module.exports = {
 ```
 
 
-
-
-
 ```js
 // .eslintrc
 module.exports = {
@@ -52,6 +48,8 @@ module.exports = {
   
   // 使用什么解释器，可以作为顶层属性配置也可以作为parserOptions的子属性进行配置
   // parser: '@typescript-eslint/parser',
+  // 
+  // parser: "vue-eslint-parser", /* 解析 .vue 文件 */
   
   // 解析器的相关信息， 可以指定ESMAScript的版本、sourceType的类型
   parserOptions: { 
@@ -61,6 +59,7 @@ module.exports = {
   },
   
   plugins: [ // 插件列表
+    // plugins 里面加了vue 就不需要加 parser: "vue-eslint-parser",
     'vue', // eslint-plugin-vue@latest的简写
     '@typescript-eslint',
   ],
@@ -69,7 +68,39 @@ module.exports = {
   rules: { 
   },
 };
-
-
 ```
 
+
+## eslint-plugin-vue
+
+[eslint-plugin-vue](https://eslint.vuejs.org/user-guide/#installation)
+
+https://juejin.cn/post/6844904074534453261
+
+
+@typescript-eslint/parser: ESLint 专门解析 TypeScript 的解析器
+@typescript-eslint/eslint-plugin: 内置各种解析 TypeScript rules 插件
+
+parser: 'vue-eslint-parser'，
+
+这里要区分和 parserOptions.parser 的区别，vue-eslint-parser 是解析 .vue 文件，
+而 parserOptions.parser：@typescript-eslint/parser 是我们自定义来解析 TypeScript 文件的，否则就无法正确的检验 TypeScript
+
+
+
+```shell
+npm i eslint eslint-plugin-vue --save-dev
+
+npm i @typescript-eslint/eslint-plugin --save-dev
+
+npm i @typescript-eslint/parser --save-dev
+
+npm i vue-eslint-parser --save-dev
+
++ eslint-config-airbnb-base@14.2.1
++ eslint-plugin-import@2.24.2
++ eslint-plugin-vue@7.18.0
++ eslint@7.32.0
++ @typescript-eslint/parser@4.31.1
++ @typescript-eslint/eslint-plugin@4.31.1
+```

@@ -20,6 +20,14 @@ let baseConfig = {
             'assets': resolvePath('src/assets')
         }
     },
+    stats: {
+        colors: true,
+        chunks: false,
+        children: false,
+        entrypoints: false,
+        modules: false,
+        logging: 'error',
+    },
     performance: {
         maxAssetSize: 400000, /* 资源(asset)是从 webpack 生成的任何文件。此选项根据单个资源体积(单位: bytes)，控制 webpack 何时生成性能提示  */
         maxEntrypointSize: 400000  /* 入口起点表示针对指定的入口，对于所有资源，要充分利用初始加载时(initial load time)期间。此选项根据入口起点的最大体积，控制 webpack 何时生成性能提示。*/
@@ -115,7 +123,7 @@ let baseConfig = {
         // new webpack.ProvidePlugin({
         //     process: 'process/browser',
         // }),
-    ]
+    ],
 };
 
 module.exports = baseConfig;

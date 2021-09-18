@@ -24,15 +24,7 @@ let proConfig = webpackMerge(baseConfig, {
         environment: {
             arrowFunction: false, /* https://webpack.docschina.org/configuration/output/ */
             const: false,
-        }
-    },
-    stats: {
-        colors: true,
-        chunks: false,
-        children: false,
-        entrypoints: false,
-        modules: false,
-        logging: 'error'
+        },
     },
     optimization: {
         moduleIds: 'deterministic' /* 对比于 hashed 来说，它会导致更小的文件 bundles。数字值的长度会被选作用于填满最多 80%的 id 空间 */

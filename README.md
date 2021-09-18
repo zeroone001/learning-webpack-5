@@ -290,15 +290,19 @@ optimization: {
 
 `stylelint-webpack-plugin`
 
-
+https://juejin.cn/post/6951649464637636622#heading-13
 
 ```shell
 npm install eslint -D
-npm install eslint-loader -D
+npm install eslint-webpack-plugin -D
 
 npm install stylelint --save-dev
 npm install stylelint-webpack-plugin --save-dev
 ```
+
+### eslint 的配置
+
+真的超级简单，不要自己手动去配置
 
 
 
