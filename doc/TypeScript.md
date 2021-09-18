@@ -1,3 +1,72 @@
+# TypeScript
+
+
+
+
+
+## 安装
+
+
+
+```shell
+npm install typescript ts-loader -D
+```
+
+
+
+## 配置loader
+
+
+
+```js
+module.exports = {
+    module: {
+        rules: [
+            // .vue 这个配置一定要放在js 之前，这是有顺序的
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+            },
+            // babel
+            {
+                test: /\.js$/,
+                exclude: file => (
+                    /node_modules/.test(file) &&
+                    !/\.vue\.js/.test(file)
+                ),
+                use: [
+                    'babel-loader',
+                ]
+            },
+            // ts
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'ts-loader', /* https://github.com/TypeStrong/ts-loader */
+                        options: {
+                            // 指定特定的ts编译配置，为了区分脚本的ts配置
+                            configFile: path.resolve(__dirname, '../tsconfig.json'),
+                            appendTsSuffixTo: [/\.vue$/],
+                            transpileOnly: true, /* 只做语言转换，而不做类型检查, 这里如果不设置成TRUE，就会HMR 报错 */
+                            happyPackMode: true,
+                        }
+                    }
+                ]
+            },
+        ]
+    }
+}
+```
+
+
+
+## tsconfig.json
+
+`"sourceMap": true, ` 这个一定要配置
+
+```json
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
@@ -11,7 +80,7 @@
       "dom",
       "es2017"
     ],                                   /* Specify library files to be included in the compilation. */
-    "allowJs": true,                             /* Allow javascript files to be compiled. */
+    // "allowJs": true,                             /* Allow javascript files to be compiled. */
     // "checkJs": true,                             /* Report errors in .js files. */
     // "jsx": "preserve",                           /* Specify JSX code generation: 'preserve', 'react-native', 'react', 'react-jsx' or 'react-jsxdev'. */
     // "declaration": true,                         /* Generates corresponding '.d.ts' file. */
@@ -83,3 +152,75 @@
     "dist"
   ]
 }
+
+```
+
+
+
+## 方案二
+
+.babelrc
+
+```json
+{
+    "presets": [
+        [
+            "@babel/preset-env",
+            {
+                "targets": {
+                    "browsers": ["> 1%", "last 2 versions", "not ie <= 8", "Android >= 4.4"]
+                }
+            }
+        ],
+        [
+            "@babel/preset-typescript",
+             {
+                 "isTSX": true, // 必须设置，否者编译tsx时会报错
+                 "allowNamespaces": true,
+           "allExtensions": true // 必须设置，否者编译.vue 文件中ts 代码会报错
+             }
+        ]
+    ],
+    "plugins": [
+        ["@babel/plugin-transform-runtime", {
+            "corejs": 3
+        }]
+    ]
+}
+```
+
+loader
+
+```js
+module.exports = {
+    module: {
+        rules: [
+            // .vue 这个配置一定要放在js 之前，这是有顺序的
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+            },
+            // babel
+            {
+                test: /\.js$/,
+                exclude: file => (
+                    /node_modules/.test(file) &&
+                    !/\.vue\.js/.test(file)
+                ),
+                use: [
+                    'babel-loader',
+                ]
+            },
+            // ts
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: [
+                    'babel-loader',
+                ]
+            },
+        ]
+    }
+}
+```
+

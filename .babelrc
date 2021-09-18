@@ -5,10 +5,21 @@
             {
                 "targets": {
                     "browsers": ["> 1%", "last 2 versions", "not ie <= 8", "Android >= 4.4"]
-                },
-                "corejs": { "version": "3.16", "proposals": true },
-                "useBuiltIns": "usage"
+                }
             }
+        ],
+        [
+            "@babel/preset-typescript",
+             {
+                 "isTSX": true, // 必须设置，否者编译tsx时会报错
+                 "allowNamespaces": true,
+           "allExtensions": true // 必须设置，否者编译.vue 文件中ts 代码会报错
+             }
         ]
+    ],
+    "plugins": [
+        ["@babel/plugin-transform-runtime", {
+            "corejs": 3
+        }]
     ]
 }

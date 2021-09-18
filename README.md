@@ -2,6 +2,36 @@
 
 学习webpack@5相关知识, 基于vue@3.x
 
+## 准备工作
+
+
+
+官网要求Node版本至少是 10.13.0 (LTS)，但是，经过自己的测试，V10.15.0都有报错，我直接升级成V14.x了
+
+
+
+## 官方升级V4到V5的文档
+
+
+
+[从 v4 升级到 v5](https://webpack.docschina.org/migrate/5/)
+
+
+
+## 启动命令
+
+--profile --progress  可以展示一个简单的性能曲线
+
+```shell
+"scripts": {
+    "dev": "cross-env NODE_ENV=development webpack serve --config ./build/dev.js --profile --progress",
+    "build:debug": "cross-env NODE_ENV=development webpack --config ./build/prod.js --profile --progress --mode=development",
+    "build": "cross-env NODE_ENV=production webpack --config ./build/prod.js --profile --progress --mode=production"
+  },
+```
+
+
+
 ## 安装
 
 ### webpack
@@ -155,14 +185,16 @@ module.exports = {
 
 ### 处理图片等文件
 
-不需要安装 file-loader 
+不需要安装 file-loader 和 url-loader， webpack5内置好了
 
 `npm install url-loader -D`
 
 url-loader: 当文件大小达到一定要求的时候，可以将其处理成 base64 的 URIS ，内置 file-loader 
 因为内置了file-loader, 所以 file-loader 就不需要安装了
 
-webpack5： 提供了内置的静态资源构建能力，
+webpack5： 提供了内置的静态资源构建能力，所以 `url-loader` 也不需要安装了
+
+
 
 ### 环境变量
 
@@ -170,17 +202,43 @@ webpack5： 提供了内置的静态资源构建能力，
 
 `npm install cross-env -D`
 
+```js
+// 使用
+cross-env NODE_ENV=development 
+
+// 获取
+process.env.NODE_ENV
+```
+
+
+
+
 ### yargs
 
 获取命令行参数
 
+用来配置自定义页面，启动服务，或者，自定义页面打包（因为我是配置了一个多页面的项目）
+
 `npm i yargs@13 -D`
 
-#### 获取环境变量
+#### 获取命令参数
 
-命令加参数 `--mode=development`
+命令加参数 `--pages=demo1`
 ps: 这里注意yargs的版本问题，如果使用下面的方式，建议用yargs@13
 `const argv = require('yargs').argv;` 获取参数
+
+```js
+npm run dev --pages=demo1
+
+// webpack.config.js
+const argv = require('yargs').argv;
+// log
+console.log(argv.pages);
+```
+
+
+
+
 
 
 ### chokidar
@@ -231,6 +289,18 @@ optimization: {
 ### ESlint & stylelint
 
 `stylelint-webpack-plugin`
+
+
+
+```shell
+npm install eslint -D
+npm install eslint-loader -D
+
+npm install stylelint --save-dev
+npm install stylelint-webpack-plugin --save-dev
+```
+
+
 
 
 ### typescript
