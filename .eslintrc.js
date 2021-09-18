@@ -1,7 +1,5 @@
 module.exports = {
-    extends: [ ""],
+    extends: [""],
     globals: {
-        dataLayer: true,
-        sensors: true,
     }
 }
