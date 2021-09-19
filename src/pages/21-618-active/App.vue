@@ -22,12 +22,6 @@ export default defineComponent({
       age: 18,
     };
     const rectiveObj = reactive(obj);
-
-    const q = () => {
-      const aaa = '12312312312312';
-      console.log(aaa);
-    };
-    q();
     return {
       aa,
       rectiveObj,
