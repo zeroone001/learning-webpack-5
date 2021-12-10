@@ -2,6 +2,8 @@
 
 学习webpack@5相关知识, 基于vue@3.x
 
+![Alt](https://repobeats.axiom.co/api/embed/df2459f335b66114b9dba64c0135686930c53afc.svg "Repobeats analytics image")
+
 ## 准备工作
 
 
