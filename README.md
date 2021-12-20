@@ -171,7 +171,7 @@ module.exports = {
 
 因为webpack只能处理commonjs规范的js文件，所以处理别的文件的时候，需要用别的loader
 
-`npm install vue-style-loader style-loader css-loader postcss-loader sass sass-loader autoprefixer -D`
+`npm install vue-style-loader style-loader css-loader postcss postcss-loader postcss-preset-env sass sass-loader autoprefixer -D`
 
 ### html
 
