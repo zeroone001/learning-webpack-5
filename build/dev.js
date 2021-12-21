@@ -90,9 +90,9 @@ let devConfig = webpackMerge(baseConfig, {
                             postcssOptions: {
                                 plugins: [
                                     [
-                                        // "postcss-preset-env", // postcss-preset-env 包含autoprefixer （npm install postcss-preset-env --save-dev）
+                                        "postcss-preset-env", // postcss-preset-env 包含autoprefixer （npm install postcss-preset-env --save-dev）
                                         // "postcss-nested",
-                                        "autoprefixer", // css 加前缀
+                                        // "autoprefixer", // css 加前缀
                                     ],
                                 ],
                             },

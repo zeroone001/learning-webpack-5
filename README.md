@@ -2,6 +2,8 @@
 
 学习webpack@5相关知识, 基于vue@3.x
 
+![Alt](https://repobeats.axiom.co/api/embed/df2459f335b66114b9dba64c0135686930c53afc.svg "Repobeats analytics image")
+
 ## 准备工作
 
 
@@ -180,7 +182,7 @@ dart-sass 不支持 `/deep/ `
 }
 ```
 
-`npm install vue-style-loader style-loader css-loader postcss-loader sass sass-loader autoprefixer -D`
+`npm install vue-style-loader style-loader css-loader postcss postcss-loader postcss-preset-env sass sass-loader autoprefixer -D`
 
 ### html
 
