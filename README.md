@@ -128,7 +128,7 @@ module.exports = {
 npm i babel-loader @babel/core @babel/preset-env -D
 
 npm install @babel/plugin-transform-runtime -D
-npm install  @babel/runtime @babel/runtime-corejs3 --save
+npm install @babel/runtime @babel/runtime-corejs3 --save
 
 
 // 下面这两个不用安装了
@@ -168,6 +168,17 @@ module.exports = {
 ### 处理样式
 
 因为webpack只能处理commonjs规范的js文件，所以处理别的文件的时候，需要用别的loader
+我这里用的是dart-sass 不是node-sass
+
+[你还在为node-sass烦恼吗？快试试官方推荐的dart-sass](https://cloud.tencent.com/developer/article/1843877)
+dart-sass 不支持 `/deep/ `
+
+需要使用下面css代替
+```css
+:deep(.foo) {
+  position: relative;
+}
+```
 
 `npm install vue-style-loader style-loader css-loader postcss-loader sass sass-loader autoprefixer -D`
 
@@ -304,7 +315,7 @@ npm install stylelint-webpack-plugin --save-dev
 
 真的超级简单，不要自己手动去配置
 
-
+`npx eslint --init`
 
 
 ### typescript

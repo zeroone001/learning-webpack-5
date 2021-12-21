@@ -2,6 +2,7 @@
     <div>
         <div class="content">
             {{ aa }}--{{ rectiveObj.name }}
+            <span>231</span>
         </div>
         <img src="~assets/event-loop.png" />
     </div>
@@ -30,7 +31,11 @@ export default defineComponent({
 });
 </script>
 <style lang="scss" scoped>
+$color: red;
 .content {
-  color: red;
+  color: $color;
+  span {
+    color: black;
+  }
 }
 </style>
