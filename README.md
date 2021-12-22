@@ -284,7 +284,7 @@ new MiniCssExtractPlugin({
 
 ```
 
-### 压缩JS
+### UglifyJS
 
 `npm install terser-webpack-plugin -D`
 
@@ -298,6 +298,15 @@ optimization: {
     ]
 },
 ```
+
+### terser-webpack-plugin & uglifyjs-webpack-plugin
+
+这两个插件都使用了 [UglifyJS](https://www.npmjs.com/package/uglify-js)
+
+UglifyJS
+
+在生产环境下，没有被使用的 exports 会有 `unused harmony export square` 注释，UglifyJS 会根据这个注释把无用代码删掉。问题中的两个例子，square 函数都没有被 import，所以都会被标记成 unused，然后被删掉
+
 
 ### ESlint & stylelint
 
@@ -371,6 +380,37 @@ optimization: {
     moduleIds: 'deterministic' // 被哈希转化成的小位数值模块名。
 },
 ```
+### optimization.sideEffects
+
+https://segmentfault.com/q/1010000018871965
+
+```js
+// package.json 
+/* 这是第三方库中的配置 */
+{
+  "sideEffects": false / [], // 整个库是没有副作用的 / 指定文件是有副作用的
+}
+// webpack.config.js
+/* 本地开发项目中的webpack配置 */
+{
+  optimization: {
+    sideEffects: true / false, // 是否识别第三方库 package.json 中的 sideEffects 以剔除无用的模块。生产模式下默认开启，其他模式不开启。
+  }
+}
+```
+
+### optimization 之 providedExports & usedExports
+
+providedExports：确定每个模块的导出，用于其他优化或代码生成。默认任何模式下都开启。生成图中的exports provided: square, cube 注释。
+usedExports：确定每个模块下被使用的导出。生产模式下默认开启，其他模式下不开启。生成
+图中的exports used: cube 和 unused harmony export square 注释。
+
+
+## Tree Shaking
+
+[Tree-Shaking性能优化实践 - 原理篇](https://juejin.cn/post/6844903544756109319)
+[Tree-Shaking性能优化实践 - 实践篇](https://juejin.cn/post/6844903544760336398)
+[你的Tree-Shaking并没什么卵用](https://zhuanlan.zhihu.com/p/32831172)
 
 ### 环境支持
 
@@ -378,11 +418,9 @@ Node V10.13.0 以上版本
 
 ## 参考资料
 
-[https://juejin.cn/post/6924180659829211143](https://juejin.cn/post/6924180659829211143)
-
-[https://github.com/zxpsuper/createVue](https://github.com/zxpsuper/createVue)
-
-[中文官网](https://webpack.docschina.org/configuration/)
+1. [https://juejin.cn/post/6924180659829211143](https://juejin.cn/post/6924180659829211143)
+2. [https://github.com/zxpsuper/createVue](https://github.com/zxpsuper/createVue)
+3. [中文官网](https://webpack.docschina.org/configuration/)
 
 ## 优点
 
