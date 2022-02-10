@@ -138,9 +138,7 @@ npm install @babel/runtime @babel/runtime-corejs3 --save
 npm i @babel/polyfill -D
 /*
   配置babel  ------> .babelrc
-
   注意： 如果要配置corejs: 3的话，那么需要安装下面的
-  
 */ 
 npm i core-js@3 -D
 ```
