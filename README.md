@@ -130,7 +130,13 @@ module.exports = {
 npm i babel-loader @babel/core @babel/preset-env -D
 
 npm install @babel/plugin-transform-runtime -D
-npm install @babel/runtime @babel/runtime-corejs3 --save
+
+//默认 corejs为 false，如果使用 core-js v3 的 runtime，则需要安装 @babel/runtime-corejs3
+
+// 下面2选一
+npm install @babel/runtime-corejs3 --save
+
+npm install @babel/runtime --save
 
 
 // 下面这两个不用安装了
@@ -140,7 +146,7 @@ npm i @babel/polyfill -D
   配置babel  ------> .babelrc
   注意： 如果要配置corejs: 3的话，那么需要安装下面的
 */ 
-npm i core-js@3 -D
+npm i core-js@3 -D // 如果有@babel/runtime-corejs3 就不需要装了
 ```
 
 ```js
