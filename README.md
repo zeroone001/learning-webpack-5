@@ -135,7 +135,7 @@ npm install @babel/plugin-transform-runtime -D
 
 // 下面2选一
 npm install @babel/runtime-corejs3 --save
-
+// 推荐用3
 npm install @babel/runtime --save
 
 
