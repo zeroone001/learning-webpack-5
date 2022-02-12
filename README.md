@@ -129,15 +129,13 @@ module.exports = {
 ```js
 npm i babel-loader @babel/core @babel/preset-env -D
 
-npm install @babel/plugin-transform-runtime -D
-
 //默认 corejs为 false，如果使用 core-js v3 的 runtime，则需要安装 @babel/runtime-corejs3
+npm install @babel/plugin-transform-runtime -D
 
 // 下面2选一
 npm install @babel/runtime-corejs3 --save
 // 推荐用3
 npm install @babel/runtime --save
-
 
 // 下面这两个不用安装了
 // 默认的Babel只⽀持let等⼀些基础的语法转换，Promise等特性无法转换，这时候需要借助@babel/polyfill，把es的新特性都装进来，来弥补低版本浏览器中缺失的特性。
