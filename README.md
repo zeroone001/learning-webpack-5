@@ -164,7 +164,6 @@ module.exports = {
     ]
   }
 }
-
 ```
 
 ## loader
@@ -175,6 +174,7 @@ module.exports = {
 我这里用的是dart-sass 不是node-sass
 
 [你还在为node-sass烦恼吗？快试试官方推荐的dart-sass](https://cloud.tencent.com/developer/article/1843877)
+
 dart-sass 不支持 `/deep/ `
 
 需要使用下面css代替
@@ -208,8 +208,6 @@ url-loader: 当文件大小达到一定要求的时候，可以将其处理成 b
 因为内置了file-loader, 所以 file-loader 就不需要安装了
 
 webpack5： 提供了内置的静态资源构建能力，所以 `url-loader` 也不需要安装了
-
-
 
 ### 环境变量
 
