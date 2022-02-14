@@ -1,4 +1,5 @@
 const path = require('path');
+/* eslint-disable */
 const { merge: webpackMerge } = require('webpack-merge');
 const baseConfig = require('./base.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
