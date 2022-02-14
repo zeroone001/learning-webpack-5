@@ -1,5 +1,6 @@
 const path = require('path');
 // const autoprefixer = require('autoprefixer');
+/* eslint-disable */ 
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader/dist/index');
 const { entries } = require('./config.js');
