@@ -100,10 +100,10 @@ let baseConfig = {
   // optimization 优化
   optimization: {
       splitChunks: {
-          chunks: 'all',
-          minSize: 30000,
-          // maxSize: 0, /* 无效的 */
-          minChunks: 1,
+          chunks: 'all', /* 可选的值：'async': 异步，即按需加载的模块。'all': 所有的模块，包括同步和异步。'initial': 初始加载的模块即同步模块 */
+          minSize: 30000,  /* module超过该大小才会被split，默认30000。 */
+          // maxSize: 0, /* 默认值0，代表不限制。 */ 
+          minChunks: 1, /* module至少被多少chunk引用才会生成新chunk。 是minChunks不是minModules */
           maxAsyncRequests: 5,
           maxInitialRequests: 2,
           name: false,
