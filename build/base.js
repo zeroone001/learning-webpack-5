@@ -5,6 +5,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader/dist/index');
 const { entries } = require('./config.js');
 
+const HelloPlugin = require('../plugins/hello');
+
 const resolvePath = (dir) => {
     return path.resolve(__dirname, '../', dir);
 };
@@ -122,6 +124,10 @@ let baseConfig = {
       }
   },
   plugins: [
+    // new HelloPlugin({
+    //     template: '../index.html',
+    //     filename: './index.html'
+    // }),
     new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
     // new webpack.ProvidePlugin({

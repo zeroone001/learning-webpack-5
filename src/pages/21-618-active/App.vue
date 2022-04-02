@@ -1,18 +1,18 @@
 <template>
-    <div>
-        <div class="content">
-            {{ aa }}--{{ rectiveObj.name }}
-            <span>231</span>
-        </div>
-        <img src="~assets/event-loop.png" />
+  <div>
+    <div class="content">
+      {{ aa }}--{{ rectiveObj.name }}
+      <span>231</span>
     </div>
+    <img src="~assets/event-loop.png" />
+  </div>
 </template>
 <script lang='ts'>
 import { defineComponent, reactive, ref } from 'vue';
 
 interface Person {
-    name: string
-    age: number
+  name: string
+  age: number
 }
 export default defineComponent({
   setup() {
@@ -32,8 +32,10 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 $color: red;
+
 .content {
   color: $color;
+
   span {
     color: black;
   }
