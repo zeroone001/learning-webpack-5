@@ -332,7 +332,7 @@ npm install stylelint-webpack-plugin --save-dev
 ### typescript
 
 
-`npm install typescript ts-loader -D`
+`npm install typescript @babel/preset-typescript -D`
 
 ### 加入VUE@3.x
 

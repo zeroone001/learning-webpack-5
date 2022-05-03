@@ -4,6 +4,7 @@
   "description": "vue3 + webpack5 + TS + babel",
   "main": "index.js",
   "scripts": {
+    "check-type": "tsc --watch",
     "dev": "cross-env NODE_ENV=development webpack serve --config ./build/dev.js --profile --progress",
     "build:debug": "cross-env NODE_ENV=development webpack --config ./build/prod.js --profile --progress --mode=development",
     "build": "cross-env NODE_ENV=production webpack --config ./build/prod.js --profile --progress --mode=production"
